@@ -9,8 +9,31 @@
 </head>
 <body>
   <h1>TaskHub</h1>
-  <input type="text" id="taskInput" placeholder="Add a new task" />
-  <button id="addBtn">Add Task</button>
-  <ul id="taskList"></ul>
+
+  <div class="input-container">
+    <input type="text" id="taskInput" placeholder="Add a new task" />
+    <select id="taskPriority">
+      <option value="normal">Normal</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button id="addBtn">Add Task</button>
+  </div>
+
+  <div class="board">
+    <div class="column" id="todo">
+      <h2>To Do</h2>
+      <ul id="todoList"></ul>
+    </div>
+    <div class="column" id="doing">
+      <h2>Doing</h2>
+      <ul id="doingList"></ul>
+    </div>
+    <div class="column" id="done">
+      <h2>Done</h2>
+      <ul id="doneList"></ul>
+    </div>
+  </div>
 </body>
 </html>
+
