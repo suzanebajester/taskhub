@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskHub</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="script.js" defer></script>
+</head>
+<body>
+  <h1>TaskHub</h1>
+
+  <!-- Input e prioridade -->
+  <div class="input-container">
+    <input type="text" id="taskInput" placeholder="Add a new task" />
+    <select id="taskPriority">
+      <option value="normal">Normal</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button id="addBtn">Add Task</button>
+  </div>
+
+  <!-- Board -->
+  <div class="board">
+    <div class="column" id="todoList">
+      <h2>To Do</h2>
+      <ul id="todoList"></ul>
+    </div>
+
+    <div class="column" id="doingList">
+      <h2>Doing</h2>
+      <ul id="doingList"></ul>
+    </div>
+
+    <div class="column" id="doneList">
+      <h2>Done</h2>
+      <ul id="doneList"></ul>
+    </div>
+  </div>
+</body>
+</html>

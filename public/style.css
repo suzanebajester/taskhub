@@ -1,0 +1,191 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body e layout geral */
+body {
+  background: #f4f6f8;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  gap: 20px;
+}
+
+/* Título */
+h1 {
+  color: #0077cc;
+  text-align: center;
+}
+
+/* Input + botão */
+.input-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd3da;
+}
+
+#taskPriority {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd3da;
+}
+
+#addBtn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#addBtn:hover { background: #005fa3; }
+
+/* Board com colunas */
+.board {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* Colunas */
+.column {
+  border-radius: 12px;
+  padding: 12px;
+  width: 280px;
+  min-height: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+/* Coluna destacada durante drag */
+.column.drag-over {
+  background-color: #e0f0ff;
+  border: 2px dashed #0077cc;
+}
+
+/* Títulos das colunas */
+.column h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 6px 0;
+  border-radius: 8px;
+  color: #fff;
+}
+
+/* Cores diferentes por coluna */
+#todoList { background-color: #0077cc; }
+#todoList h2 { background-color: #005fa3; }
+#doingList { background-color: #ff9800; }
+#doingList h2 { background-color: #e67e22; }
+#doneList { background-color: #4caf50; }
+#doneList h2 { background-color: #388e3c; }
+
+/* Lista de tarefas */
+.column ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0 0 0;
+  flex-grow: 1;
+}
+
+/* Cartões de tarefas */
+.column li {
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-word;
+  cursor: grab;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+.column li:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+
+/* Efeito arrastando */
+.column li.dragging {
+  opacity: 0.6;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Botão de excluir */
+.column li button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
+}
+.column li button:hover { transform: scale(1.15); color: red; }
+
+/* Layout interno do cartão */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  cursor: grab;
+}
+
+/* Conteúdo da tarefa ocupa espaço restante */
+.task-content {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Tag de prioridade */
+.priority-tag {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Cores por prioridade */
+.priority-tag.normal { background-color: #7f8c8d; } /* cinza */
+.priority-tag.medium { background-color: #f39c12; } /* laranja */
+.priority-tag.high { background-color: #e74c3c; } /* vermelho */
+
+/* Select de prioridade */
+li select {
+  border-radius: 6px;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+/* Responsivo: colunas empilham em telas pequenas */
+@media (max-width: 900px) {
+  .board {
+    flex-direction: column;
+    align-items: center;
+  }
+  .column { width: 90%; }
+}
